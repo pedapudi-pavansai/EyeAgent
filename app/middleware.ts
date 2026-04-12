@@ -14,6 +14,11 @@ export async function middleware(request: NextRequest) {
     return new NextResponse('Server configuration error', { status: 500 })
   }
 
+  // Do not refresh the session on sign-out — avoids racing with the route handler's cleared cookies.
+  if (request.nextUrl.pathname === '/api/auth/signout') {
+    return NextResponse.next({ request })
+  }
+
   let supabaseResponse = NextResponse.next({ request })
 
   const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {

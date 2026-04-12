@@ -9,7 +9,8 @@ import { NextResponse, type NextRequest } from 'next/server'
 export async function POST(request: NextRequest) {
   const loginUrl = new URL('/login', request.url)
 
-  let response = NextResponse.redirect(loginUrl)
+  // 303 so the browser follows with GET. Default 307 keeps POST → /login breaks the page load.
+  let response = NextResponse.redirect(loginUrl, 303)
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
