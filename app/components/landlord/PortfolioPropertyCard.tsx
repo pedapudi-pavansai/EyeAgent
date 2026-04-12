@@ -144,24 +144,24 @@ export default function PortfolioPropertyCard({ property, distinctPlaceholderUrl
             </div>
           </div>
 
-          <div className="mt-4 flex items-center gap-1.5">
-            <TypeIcon property={property} />
-            <div className="text-[11px] font-medium leading-[16.5px] text-[#64748b]">
-              <p>{units.line1}</p>
-              <p>{units.line2}</p>
+          <div className="mt-4 flex min-w-0 items-center gap-2 sm:gap-3">
+            <div className="flex shrink-0 items-center gap-1.5">
+              <TypeIcon property={property} />
+              <p className="whitespace-nowrap text-[11px] font-medium leading-[16.5px] text-[#64748b]">
+                {units.line1} {units.line2}
+              </p>
             </div>
-          </div>
-
-          <div className="mt-3 grid grid-cols-2 gap-2">
-            <Link
-              href={`/properties/${property.id}`}
-              className={cn(
-                'rounded-lg bg-[rgba(240,253,250,0.9)] px-2 py-2 text-center font-manrope text-[12px] font-bold leading-tight text-[#0f766e] ring-1 ring-[#0f766e]/20 transition hover:bg-[#ccfbf1]/80'
-              )}
-            >
-              View details
-            </Link>
-            <CopyApplicationLinkButton propertyId={property.id} />
+            <div className="grid min-w-0 flex-1 grid-cols-2 gap-2">
+              <Link
+                href={`/properties/${property.id}`}
+                className={cn(
+                  'rounded-lg bg-[rgba(240,253,250,0.9)] px-2 py-2 text-center font-manrope text-[12px] font-bold leading-tight text-[#0f766e] ring-1 ring-[#0f766e]/20 transition hover:bg-[#ccfbf1]/80'
+                )}
+              >
+                View details
+              </Link>
+              <CopyApplicationLinkButton propertyId={property.id} className="min-w-0" />
+            </div>
           </div>
         </div>
       </div>

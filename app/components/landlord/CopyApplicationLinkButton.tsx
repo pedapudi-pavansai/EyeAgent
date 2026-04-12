@@ -55,12 +55,12 @@ export default function CopyApplicationLinkButton({ propertyId, className }: Pro
   }
 
   return (
-    <div className={cn('flex flex-col gap-1', className)}>
+    <div className={cn('flex w-full min-w-0 flex-col gap-1', className)}>
       <button
         type="button"
         onClick={generateApplicationLink}
         className={cn(
-          'rounded-lg border border-[#e2e8f0] bg-[#f8fafc] px-2 py-2 text-center font-manrope text-[12px] font-semibold leading-tight text-[#475569] transition hover:bg-[#f1f5f9]',
+          'w-full rounded-lg border border-[#e2e8f0] bg-[#f8fafc] px-2 py-2 text-center font-manrope text-[12px] font-semibold leading-tight text-[#475569] transition hover:bg-[#f1f5f9]',
           error && 'border-red-200 bg-red-50/80'
         )}
       >
