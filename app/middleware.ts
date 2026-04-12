@@ -21,13 +21,18 @@ export async function middleware(request: NextRequest) {
       getAll() {
         return request.cookies.getAll()
       },
+      // Next.js 15+ Edge: `request.cookies` is read-only — do not call `request.cookies.set`
+      // (throws → Vercel MIDDLEWARE_INVOCATION_FAILED). Only mirror cookies onto the response.
       setAll(cookiesToSet, headers) {
-        cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
         supabaseResponse = NextResponse.next({ request })
-        cookiesToSet.forEach(({ name, value, options }) =>
+        cookiesToSet.forEach(({ name, value, options }) => {
           supabaseResponse.cookies.set(name, value, options)
-        )
-        Object.entries(headers).forEach(([key, value]) => supabaseResponse.headers.set(key, value))
+        })
+        if (headers && typeof headers === 'object') {
+          Object.entries(headers).forEach(([key, value]) => {
+            supabaseResponse.headers.set(key, String(value))
+          })
+        }
       },
     },
   })
