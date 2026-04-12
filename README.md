@@ -15,13 +15,47 @@
 
 **Independent landlords. Professional-grade workflows.**
 
-[Local setup →](./app/README.md)
-
 </div>
 
 ---
 
-> **Local development:** clone, configure Supabase + env, and run the Next.js app using **[`app/README.md`](./app/README.md)**. This file is the technical overview only.
+## Run locally
+
+1. **Install dependencies** (Next.js app lives in `app/`):
+
+   ```bash
+   cd app && npm install
+   ```
+
+2. **Environment:** copy `app/.env.example` to `app/.env.local` and fill in values (Supabase + `GOOGLE_API_KEY` minimum).
+
+3. **Start dev** — from the **repository root**:
+
+   ```bash
+   npm run dev
+   ```
+
+   Or from `app/`: `npm run dev` → [http://localhost:3000](http://localhost:3000).
+
+4. **Database:** apply SQL migrations in order under `app/supabase/migrations/` (see [`app/README.md`](./app/README.md)).
+
+---
+
+## Deploy to Vercel
+
+1. **New project** → Import this Git repository.
+2. **Root Directory:** set to **`app`** (required so Next.js, `app/vercel.json` crons, and `package-lock.json` resolve correctly).
+3. **Framework preset:** Next.js (auto-detected).
+4. **Build & install:** leave defaults (`npm run build`, `npm install`).
+5. **Node.js:** 20.x (optional: enable “Use Node version from `.nvmrc’” — file is in `app/.nvmrc`).
+6. **Environment variables:** add the same keys as `app/.env.example` in **Project → Settings → Environment Variables** (Production + Preview). Set `NEXT_PUBLIC_APP_URL` to your Vercel URL (e.g. `https://your-project.vercel.app`).
+7. **Cron:** `app/vercel.json` schedules `/api/cron/diligence-worker` — ensure **`CRON_SECRET`** is set if your worker checks it.
+
+Full setup detail: **[`app/README.md`](./app/README.md)**. Architecture and features: this file below.
+
+---
+
+> **Note:** The repo root `package.json` only forwards scripts into `app/` (`npm run dev`, `npm run build`, …). Dependencies are installed under **`app/`**.
 
 ---
 

@@ -1,3 +1,7 @@
 .DS_Store
 
 .env.local
+
+# Root is orchestration-only; dependencies are locked under app/package-lock.json
+/package-lock.json
+node_modules

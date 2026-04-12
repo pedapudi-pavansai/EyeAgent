@@ -58,7 +58,7 @@ export function LandingHero({
             {/* Button-in-button primary CTA — Link for page transition */}
             <Link
               href="/register"
-              className="group flex items-center gap-2.5 rounded-full bg-[#0a1512] pl-6 pr-2 py-2 text-[15px] font-semibold text-white shadow-[0_2px_12px_rgba(10,21,18,0.25)] transition-[background,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[#0f766e] hover:shadow-[0_4px_24px_rgba(15,118,110,0.35)] active:scale-[0.97]"
+              className="group flex items-center gap-2.5 rounded-full bg-brand pl-6 pr-2 py-2 text-[15px] font-semibold text-white shadow-[0_2px_12px_rgba(15,118,110,0.28)] transition-[background,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-brand-hover hover:shadow-[0_4px_24px_rgba(15,118,110,0.38)] active:scale-[0.97]"
             >
               Get started free
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 transition-[transform,background] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-px group-hover:scale-110 group-hover:bg-white/15">

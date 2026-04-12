@@ -10,7 +10,7 @@ This document is **only** how to install dependencies, configure Supabase and AI
 
 ## Prerequisites
 
-- **Node.js 18+**
+- **Node.js 20+** (see `.nvmrc`; matches Vercel)
 - A **Supabase** project (Postgres + Auth + API keys)
 - A **Google AI** API key for Gemini (marketplace recommendations + LangGraph diligence nodes)
 
@@ -18,17 +18,19 @@ This document is **only** how to install dependencies, configure Supabase and AI
 
 ## 1. Install dependencies
 
-From this directory (`platform/app`):
+From **`app/`** (this folder):
 
 ```bash
 npm install
 ```
 
+From the **repository root** (parent of `app/`), you can run `npm run dev` / `npm run build` after installing in `app/` — those scripts delegate here.
+
 ---
 
 ## 2. Environment variables
 
-Create **`.env.local`** in `platform/app/` (same folder as `package.json`):
+Copy **`.env.example`** to **`.env.local`** in this folder (`app/`), then fill in values:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
@@ -52,7 +54,7 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 
 ## 3. Database: migrations and seed
 
-In the Supabase dashboard, open the **SQL Editor** and run every file under `supabase/migrations/` **in numeric order** (paths relative to `platform/app/`):
+In the Supabase dashboard, open the **SQL Editor** and run every file under `supabase/migrations/` **in numeric order** (paths relative to this `app/` folder):
 
 `001_initial_schema.sql` → `002_applications_rls_and_policies.sql` → … through `010_application_tokens_select_policy.sql` (or whatever the latest `NNN_*.sql` is in your checkout).
 
@@ -110,9 +112,14 @@ For **API behavior** (diligence rules, scoring vs LLM), use **[`../README.md`](.
 
 ---
 
-## Production deployment
+## Production deployment (Vercel)
 
-Deploy to **Vercel** (or any Node host). Mirror all `.env.local` variables in the host’s environment. Set `NEXT_PUBLIC_APP_URL` to your production URL.
+1. Import the Git repo and set **Root Directory** to **`app`**.
+2. Add every variable from `.env.example` in Vercel → **Settings → Environment Variables** (Production and Preview).
+3. Set `NEXT_PUBLIC_APP_URL` to your deployment URL (for example `https://<project>.vercel.app`).
+4. Deploy. Cron jobs are defined in `vercel.json` in this folder.
+
+CLI (optional), from `app/` with [Vercel CLI](https://vercel.com/docs/cli):
 
 ```bash
 vercel --prod

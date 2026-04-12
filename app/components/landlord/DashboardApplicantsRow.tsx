@@ -54,7 +54,7 @@ export default function DashboardApplicantsRow({ applications, compact }: Props)
         <Link
           href="/diligence"
           className={cn(
-            'group flex shrink-0 items-center gap-2 rounded-full bg-[#0a1512] pl-4 pr-1.5 py-1.5 text-[13px] font-semibold text-white shadow-sm transition-[background,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[#0f766e] active:scale-[0.97]',
+            'group flex shrink-0 items-center gap-2 rounded-full bg-brand pl-4 pr-1.5 py-1.5 text-[13px] font-semibold text-white shadow-[0_2px_12px_rgba(15,118,110,0.22)] transition-[background,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-brand-hover active:scale-[0.97]',
             compact && 'self-start'
           )}
         >

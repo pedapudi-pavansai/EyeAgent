@@ -93,7 +93,7 @@ export default function RegisterPage() {
     <div className="flex min-h-[100dvh]">
 
       {/* ── Left brand panel — Z-Axis cascade depth ── */}
-      <aside className="hidden lg:flex lg:w-[440px] xl:w-[500px] shrink-0 flex-col justify-between bg-[#0a1512] px-12 py-12">
+      <aside className="hidden lg:flex lg:w-[440px] xl:w-[500px] shrink-0 flex-col justify-between bg-brand px-12 py-12">
 
         <Link
           href="/"
@@ -189,7 +189,7 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={loading}
-              className="group mt-2 flex w-full items-center justify-between rounded-full bg-[#0a1512] pl-6 pr-2 py-2 text-[15px] font-semibold text-white shadow-[0_2px_12px_rgba(10,21,18,0.2)] transition-[background,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[#0f766e] active:scale-[0.99] disabled:opacity-50"
+              className="group mt-2 flex w-full items-center justify-between rounded-full bg-brand pl-6 pr-2 py-2 text-[15px] font-semibold text-white shadow-[0_2px_12px_rgba(15,118,110,0.28)] transition-[background,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-brand-hover active:scale-[0.99] disabled:opacity-50"
             >
               {loading ? 'Creating account…' : 'Create account'}
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 transition-[transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:scale-105 group-enabled:group-hover:bg-white/15">

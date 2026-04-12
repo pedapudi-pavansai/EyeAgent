@@ -465,7 +465,7 @@ export default function MarketplacePageClient() {
                       <button
                         type="button"
                         onClick={() => setFilters(defaultFilters)}
-                        className="group mt-7 inline-flex items-center gap-2 rounded-full bg-[#0a1512] pl-5 pr-2 py-2 text-[13.5px] font-semibold text-white transition-[background,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[#0f766e] active:scale-[0.97]"
+                        className="group mt-7 inline-flex items-center gap-2 rounded-full bg-brand pl-5 pr-2 py-2 text-[13.5px] font-semibold text-white shadow-[0_2px_12px_rgba(15,118,110,0.22)] transition-[background,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-brand-hover active:scale-[0.97]"
                       >
                         <Building2 className="h-3.5 w-3.5" strokeWidth={2} />
                         Reset to defaults

@@ -27,7 +27,7 @@ function BentoCard({
       className={[
         'rounded-[28px] p-[5px] ring-1',
         'transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1.5',
-        accent ? 'bg-[#0a1512] ring-white/[0.08]' : 'bg-black/[0.03] ring-black/[0.05]',
+        accent ? 'bg-brand ring-white/[0.12]' : 'bg-black/[0.03] ring-black/[0.05]',
         className,
       ].join(' ')}
     >
@@ -35,7 +35,7 @@ function BentoCard({
         className={[
           'h-full rounded-[23px] p-7',
           accent
-            ? 'bg-[#0e1f18] shadow-[inset_0_1px_1px_rgba(255,255,255,0.06)]'
+            ? 'bg-brand-hover shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]'
             : 'bg-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)]',
         ].join(' ')}
       >
@@ -184,7 +184,7 @@ export function LandingContent() {
       </section>
 
       {/* ── Final CTA ── */}
-      <section className="bg-[#0a1512] px-4 py-32 sm:px-6">
+      <section className="bg-brand-hover px-4 py-32 sm:px-6">
         <div className="mx-auto max-w-2xl text-center">
 
           <Reveal>
@@ -205,7 +205,7 @@ export function LandingContent() {
           <Reveal delay={100} className="mt-10 flex flex-col items-center gap-5 sm:flex-row sm:justify-center">
             <Link
               href="/register"
-              className="group flex items-center gap-2.5 rounded-full bg-[#0f766e] pl-6 pr-2 py-2 text-[15px] font-semibold text-white shadow-[0_2px_20px_rgba(15,118,110,0.4)] transition-[background,box-shadow,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[#115e59] hover:shadow-[0_4px_32px_rgba(15,118,110,0.5)] active:scale-[0.97]"
+              className="group flex items-center gap-2.5 rounded-full bg-brand pl-6 pr-2 py-2 text-[15px] font-semibold text-white shadow-[0_2px_20px_rgba(15,118,110,0.45)] transition-[background,box-shadow,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:brightness-110 hover:shadow-[0_4px_32px_rgba(15,118,110,0.5)] active:scale-[0.97]"
             >
               Get started free
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 transition-[transform,background] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-px group-hover:scale-110 group-hover:bg-white/20">
@@ -224,7 +224,7 @@ export function LandingContent() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="bg-[#0a1512] border-t border-white/[0.05] px-4 py-8 sm:px-6">
+      <footer className="bg-brand-hover border-t border-white/[0.08] px-4 py-8 sm:px-6">
         <div className="mx-auto flex max-w-5xl items-center justify-between">
           <span className="font-manrope text-[13px] font-bold tracking-[0.3em] text-white/30">
             KEYSTONE

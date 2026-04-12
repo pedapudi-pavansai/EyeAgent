@@ -141,7 +141,7 @@ export default async function DashboardPage() {
           </div>
           <Link
             href="/onboarding"
-            className="group flex w-fit items-center gap-2.5 rounded-full bg-[#0a1512] pl-5 pr-2 py-2 text-[14px] font-semibold text-white shadow-sm transition-[background,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[#0f766e] active:scale-[0.98]"
+            className="group flex w-fit items-center gap-2.5 rounded-full bg-brand pl-5 pr-2 py-2 text-[14px] font-semibold text-white shadow-[0_2px_12px_rgba(15,118,110,0.22)] transition-[background,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-brand-hover active:scale-[0.98]"
           >
             Add asset
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 transition-[transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:scale-110">
@@ -215,7 +215,7 @@ export default async function DashboardPage() {
                   )}
                   <Link
                     href="/onboarding"
-                    className="group mt-6 flex items-center gap-2 rounded-full bg-[#0a1512] pl-5 pr-2 py-2 text-[13.5px] font-semibold text-white transition-[background,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[#0f766e] active:scale-[0.98]"
+                    className="group mt-6 flex items-center gap-2 rounded-full bg-brand pl-5 pr-2 py-2 text-[13.5px] font-semibold text-white shadow-[0_2px_12px_rgba(15,118,110,0.22)] transition-[background,transform] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-brand-hover active:scale-[0.98]"
                   >
                     Add first asset
                     <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 transition-[transform] duration-300 group-hover:translate-x-0.5 group-hover:scale-110">
