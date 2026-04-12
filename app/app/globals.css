@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8f9fa;
+  --foreground: #191c1d;
+}
+
+/* Keystone brand tokens */
+@theme inline {
+  --color-brand: #0f766e;
+  --color-brand-hover: #005f5e;
+  --color-brand-foreground: #115e59;
+  --color-brand-muted: rgba(240, 253, 250, 0.85);
+  --color-brand-subtle: #f0fdfa;
+  --color-brand-ring: #0f766e;
+}
+
+@utility font-manrope {
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Film-grain noise overlay — fixed, pointer-events-none */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  opacity: 0.022;
+  mix-blend-mode: overlay;
+}
+
+/* Headings: prevent orphaned words */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+/* Tabular figures for financial/numeric data */
+.tabular-nums,
+[data-numeric] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Hero text entry ── */
+@keyframes heroReveal {
+  from { opacity: 0; transform: translateY(28px); filter: blur(10px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
+.hero-reveal {
+  animation: heroReveal 0.9s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+/* ── Nav entrance — slides down from above ── */
+@keyframes navReveal {
+  from { opacity: 0; transform: translateY(-14px); filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0);     filter: blur(0); }
+}
+.nav-reveal {
+  animation: navReveal 0.65s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+/* ── Scroll cue — refined vertical pulse ── */
+@keyframes scrollCuePulse {
+  0%, 100% { transform: translateY(0);   opacity: 0.35; }
+  55%       { transform: translateY(6px); opacity: 1; }
+}
+.scroll-cue-animate {
+  animation: scrollCuePulse 2.2s cubic-bezier(0.32, 0.72, 0, 1) infinite;
+  animation-delay: 1.8s; /* waits for hero to finish before starting */
+}
+
+/* (page-exit is handled by PageFade component via React state + CSS transitions) */
+
+/* hero-scroll-fade removed — CSS Scroll-Driven Animations has inconsistent
+   behaviour in DevTools responsive mode and across browser versions. */
+
+/* ── Scroll reveal — IntersectionObserver toggled ── */
+.reveal-start {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(6px);
+  transition:
+    opacity 0.75s cubic-bezier(0.32, 0.72, 0, 1),
+    transform 0.75s cubic-bezier(0.32, 0.72, 0, 1),
+    filter 0.75s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.reveal-start.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Directional reveal variants */
+.reveal-start[data-dir="left"]  { transform: translateX(32px)  translateY(0); }
+.reveal-start[data-dir="right"] { transform: translateX(-32px) translateY(0); }
+.reveal-start[data-dir="left"].is-visible,
+.reveal-start[data-dir="right"].is-visible { transform: translateX(0) translateY(0); }
+
+/* Scroll-exit: element fades as it leaves above the viewport */
+.reveal-start.is-exiting {
+  opacity: 0;
+  transform: translateY(-20px);
+  filter: blur(4px);
+}
+
+/* ── Reduced motion — a11y requirement ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal,
+  .nav-reveal,
+  .scroll-cue-animate {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .reveal-start {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  /* PageFade checks prefers-reduced-motion imperatively before animating */
+}
+
+/* ── Button spring press ── */
+a, button {
+  transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+  transition-duration: 200ms;
+}
