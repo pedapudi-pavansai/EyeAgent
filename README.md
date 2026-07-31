@@ -1,49 +1,52 @@
-# Keystone
+# EyeAgent
 
-> AI-powered property management platform that helps independent landlords screen applicants, evaluate investments, and automate rental workflows.
+> AI-powered property intelligence platform that helps independent landlords screen tenants, evaluate investments, and automate rental decision making.
 
-![Keystone Dashboard](docs/images/dashboard.png)
+![EyeAgent Dashboard]
+
 
 ---
 
 ## Overview
 
-Keystone is a full-stack property management platform built for independent landlords. The platform combines deterministic applicant scoring with AI-powered analysis to streamline tenant screening, investment evaluation, and portfolio management.
+EyeAgent is a full-stack property management platform that combines deterministic applicant screening with multi-agent AI workflows to streamline rental operations.
 
-Unlike traditional property management software, Keystone separates high-stakes, explainable decisions from AI-generated insights, ensuring applicant evaluations remain transparent while leveraging LLMs for financial analysis and investment recommendations.
+The platform enables landlords to manage portfolios, evaluate applicants, analyze investment opportunities, and generate comprehensive tenant diligence reports through an explainable AI pipeline.
+
+Unlike traditional AI-first platforms, EyeAgent separates deterministic decision making from LLM reasoning, ensuring applicant evaluations remain transparent while leveraging AI for financial analysis, risk assessment, and investment recommendations.
 
 ---
 
 ## Features
 
-- 🏠 Portfolio dashboard for managing rental properties
-- 📝 Secure tenant application portal
-- 📊 Deterministic applicant scoring engine
-- 🤖 AI-powered financial and risk analysis
-- 💰 Investment marketplace with personalized recommendations
-- ⚡ Asynchronous multi-agent diligence pipeline
-- 🔐 Secure authentication and Row-Level Security
+- 🏠 Portfolio and property management dashboard
+- 📄 Secure tenant application workflow
+- 📈 Deterministic applicant scoring engine
+- 🤖 Multi-agent AI diligence pipeline
+- 💰 AI-powered investment marketplace recommendations
+- 📊 Financial and risk analysis reports
+- 🔐 Secure authentication with Supabase Row-Level Security
 
 ---
 
 ## Architecture
 
 ```text
-                  Applicant
-                      │
-                      ▼
-              Next.js Web Platform
-                      │
-        ┌─────────────┼─────────────┐
-        ▼             ▼             ▼
-   Supabase      Scoring Engine   Gemini AI
-        │             │             │
-        └─────────────┼─────────────┘
-                      ▼
-            LangGraph Agent Pipeline
-                      │
-                      ▼
-              Diligence Reports
+                   Applicant
+                       │
+                       ▼
+                Next.js Platform
+                       │
+         ┌─────────────┼─────────────┐
+         ▼             ▼             ▼
+    Supabase      Scoring Engine   Gemini AI
+         │             │             │
+         └─────────────┼─────────────┘
+                       ▼
+              LangGraph Agent Pipeline
+                       │
+                       ▼
+             Diligence Report Generator
 ```
 
 ---
@@ -65,7 +68,7 @@ Unlike traditional property management software, Keystone separates high-stakes,
 
 ### AI
 - Google Gemini
-- Deterministic Scoring Engine
+- Deterministic Applicant Scoring
 - Multi-Agent Workflow
 
 ### Infrastructure
@@ -77,11 +80,11 @@ Unlike traditional property management software, Keystone separates high-stakes,
 
 ## System Design
 
-Keystone separates deterministic decision making from AI reasoning.
+EyeAgent uses a hybrid decision-making architecture.
 
-Applicant qualification is computed using a fully deterministic scoring algorithm based on affordability, debt-to-income ratio, credit profile, and rental history. AI is only introduced after the scoring stage to generate financial summaries, risk assessments, and investment recommendations.
+Applicant qualification is calculated through a deterministic scoring engine using affordability, debt-to-income ratio, credit profile, and rental history. Once eligibility is established, specialized AI agents generate financial summaries, risk assessments, and comprehensive diligence reports.
 
-This architecture keeps critical decisions transparent while allowing language models to synthesize complex financial information.
+This separation ensures high-stakes decisions remain transparent and auditable while allowing language models to synthesize complex financial information.
 
 ---
 
@@ -116,12 +119,12 @@ http://localhost:3000
 
 ## Future Improvements
 
-- Multi-property analytics dashboard
-- Real-time rent payment tracking
-- Maintenance request management
 - AI lease generation
+- Maintenance request automation
+- Rent payment analytics
+- Multi-owner portfolio management
 - Mobile application
-- Multi-owner portfolio support
+- Predictive investment insights
 
 ---
 
